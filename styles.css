@@ -1,0 +1,196 @@
+/* Brand tokens */
+:root {
+  --black: #000204;
+  --white: #ffffff;
+  --green: #28d27d;
+  --gray-500: #72787f;
+  --gray-700: #464c53;
+  --font-heading: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Pretendard", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Global reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--green); text-decoration: none; }
+a:hover, a:focus-visible { text-decoration: underline; }
+
+.site-header {
+  max-width: 1080px;
+  margin: 4rem auto 2rem;
+  text-align: center;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-500);
+}
+
+/* Grid of cards */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1080px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+}
+
+.card {
+  border: 1px solid var(--gray-700);
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.card h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.card p { font-size: 0. Nine-fiverem; color: var(--gray-700); }
+
+.card:hover,
+.card:focus-within {
+  border-color: var(--green);
+  transform: translateY(-4px);
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 0. Eight-fiverem;
+  padding: 2rem 1rem;
+  color: var(--gray-700);
+  border-top: 1px solid var(--gray-700);
+}
+
+.brand-logo {
+  width: clamp(120px, 20vw, 240px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.collapsible summary {
+  list-style: none;              /* remove default ▸ */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.collapsible summary::-webkit-details-marker { display: none; }
+
+.collapsible[open] summary::before,
+.collapsible summary::before {
+  content: "▸";
+  transition: transform .25s;
+  font-size: .85rem;
+  color: var(--green);
+}
+.collapsible[open] summary::before { transform: rotate(90deg); }
+
+.link-list { margin-top: 1rem; padding-left: 1rem; }
+.link-list li { margin-bottom: .25rem; }
+.link-list a { color: var(--white); }
+.link-list a:hover { color: var(--green); }
+
+.collapsible:hover,
+.collapsible:focus-within { border-color: var(--green); transform: translateY(-4px); }
+
+.collapsible summary h2 { margin: 0; }
+
+.contact-card form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-card input[type=email],
+.contact-card select {
+  width: 100%;
+  padding: .65rem .8rem;
+  border: 1px solid var(--gray-700);
+  border-radius: 4px;
+  background: var(--black);
+  color: var(--white);
+  font: inherit;
+}
+
+.contact-card input[type=email]:focus,
+.contact-card select:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 1px var(--green);
+}
+
+.contact-card fieldset {
+  border: 0;
+  padding: 0;
+  display: grid;
+  gap: .35rem;
+}
+.contact-card legend {
+  font-size: .9rem;
+  margin-bottom: .25rem;
+  color: var(--white);
+}
+.contact-card label {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .85rem;
+  cursor: pointer;
+}
+
+.contact-card button {
+  justify-self: start;
+  padding: .6rem 1.2rem;
+  background: var(--green);
+  color: var(--black);
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.contact-card button:hover { filter: brightness(1.1); }
+
+.contact-card input[type=email] {
+  width: 90%;
+}
+
+.privacy-note {
+  display: block;
+  font-size: .7rem;
+  color: var(--gray-700);
+  margin-top: .5rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0);
+  border: 0;
+}
+

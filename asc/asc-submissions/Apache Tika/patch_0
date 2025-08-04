@@ -1,0 +1,22 @@
+diff --git a/tika-app/src/main/java/org/apache/tika/cli/TikaUntar.java b/tika-app/src/main/java/org/apache/tika/cli/TikaUntar.java
+index b67f14c..35944f3 100644
+--- a/tika-app/src/main/java/org/apache/tika/cli/TikaUntar.java
++++ b/tika-app/src/main/java/org/apache/tika/cli/TikaUntar.java
+@@ -43,10 +43,14 @@ public class TikaUntar {
+             while (tae != null) {
+                 if (! tae.isDirectory()) {
+                     Path target = extractDir.resolve(tae.getName()).normalize();
+-                    if (!Files.isDirectory(target.getParent())) {
+-                        Files.createDirectories(target.getParent());
++                    if (!target.startsWith(extractDir)) {
++                        System.err.println("Skipping file outside of extraction directory: " + tae.getName());
++                    } else {
++                        if (!Files.isDirectory(target.getParent())) {
++                            Files.createDirectories(target.getParent());
++                        }
++                        Files.copy(tais, target, StandardCopyOption.REPLACE_EXISTING);
+                     }
+-                    Files.copy(tais, target, StandardCopyOption.REPLACE_EXISTING);
+                 }
+                 tae = tais.getNextEntry();
+             }

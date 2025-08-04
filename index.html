@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theori — DARPA AIxCC</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg" href="/aixcc-public/logo.svg">
+</head>
+<body>
+  <header class="site-header">
+    <a href="https://theori.io" class="brand">
+      <img src="theori.svg" alt="Theori logo" class="brand-logo">
+    </a>
+    <p class="tagline">DARPA AI Cyber Challenge | By <a href="https://theori.io">Theori</a></p>
+  </header>
+
+  <main class="link-grid">
+    <details class="card collapsible">
+      <summary><h2>Blog Posts</h2></summary>
+      <ul class="link-list">
+        <li><a href="https://theori.io/blog/aixcc-and-roboduck-63447">AIxCC and RoboDuck - Overview</a></li>
+        <li><a href="https://theori.io/blog/building-effective-llm-agents-63446">Building Effective LLM Agents</a></li>
+        <li><a href="https://theori.io/blog/exploring-traces-63950">Agent Trajectory Walkthroughs</a></li>
+        <li><i>More coming...</i></li>
+      </ul>
+    </details>
+
+    <details class="card collapsible">
+      <summary><h2>Source Code</h2></summary>
+      <ul class="link-list">
+        <li><a href="https://github.com/theori-io/aixcc-asc-archive">Semifinals Source</a></li>
+        <li><a href="https://github.com/theori-io/aixcc-afc-archive">Finals Source</a></li>
+      </ul>
+    </details>
+
+    <details class="card collapsible">
+      <summary><h2>Artifacts / Logs / Reports</h2></summary>
+      <ul class="link-list">
+        <li><a href="/aixcc-public/logs/">Agent Traces from testing our CRS</a></li>
+        <li><a href="https://github.com/theori-io/aixcc-public/tree/main/asc">ASC artifacts (and technical report)</a></li>
+        <li><a href="/aixcc-public/afc/Branch Flipper.pdf">Branch Flipper Whitepaper</a></li>
+      </ul>
+    </details>
+
+    <details class="card collapsible">
+      <summary><h2>External</h2></summary>
+      <ul class="link-list">
+        <li><a href="https://aicyberchallenge.com/">DARPA AI Cyber Challenge homepage</a></li>
+        <li><a href="https://www.youtube.com/watch?v=LTOyP_3aFP0">Theori video interview on CTF Radiooo</a></li>
+        <li><a href="https://x.com/theori_io">Theori's Twitter/X</a></li>
+      </ul>
+    </details>
+
+    <details id="contact-box" class="card collapsible contact-card">
+      <summary><h2>Stay Updated</h2></summary>
+      <br/>
+      <div id="contact-form">
+      <form action="https://api.staticforms.xyz/submit" method="POST">
+        <input type="hidden" name="apiKey" value="sf_32nmnikcbme98jh50ejc900g">
+          <input
+            type="text"
+            name="honeypot"
+            style="display: none"
+            tabindex="-1"
+            autocomplete="off"
+          >
+        
+        <label class="visually-hidden" for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="you@domain.com" required>
+
+        <fieldset>
+          <legend>Why are you interested?</legend>
+
+          <label><input type="radio" name="persona" value="buyer" required>
+            We might purchase Theori's products
+          </label>
+
+          <label><input type="radio" name="persona" value="investor">
+            We're investors
+          </label>
+
+          <label><input type="radio" name="persona" value="curious">
+            Just curious
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>What areas interests you?</legend>
+
+          <label><input type="checkbox" name="focus[]" value="large-codebases">
+            Finding bugs in large codebases
+          </label>
+
+          <label><input type="checkbox" name="focus[]" value="commits">
+            Finding bugs during development
+          </label>
+
+          <label><input type="checkbox" name="focus[]" value="triage">
+            Triaging bug reports from other sources
+          </label>
+
+          <label><input type="checkbox" name="focus[]" value="patching">
+            Patching security issues automatically
+          </label>
+
+          <label><input type="checkbox" name="focus[]" value="pocs">
+            Writing POCs to demonstrate issues
+          </label>
+        </fieldset>
+
+        <textarea id="comments" name="comments" placeholder="Optional comments" rows="3"></textarea>
+
+        <div class="g-recaptcha" data-size="compact" data-theme="dark" data-sitekey="6LfSF4wrAAAAAB-rOA_K5qaD8Zchqrxa6Njc-ufw"></div>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <input type="hidden" name="redirectTo" value="https://theori-io.github.io/aixcc-public/#thanks">
+
+        <button type="submit">Keep in touch</button>
+      </form>
+      <small class="privacy-note">
+        We'll use your e-mail only for updates about our commercial offerings.
+      </small>
+      </div>
+    </details>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2025 Theori. All rights reserved.
+  </footer>
+<script>
+(function () {
+  if (location.hash !== '#thanks') return;
+  const box = document.getElementById('contact-box');
+  if (box && !box.open) box.open = true;
+  document.getElementById('contact-form').textContent = "Thanks – we'll be in touch!";
+})();
+</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40784eeec73443fa94ad29290eb38c81"}'></script>
+</body>
+</html>

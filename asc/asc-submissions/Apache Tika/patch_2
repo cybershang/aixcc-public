@@ -1,0 +1,32 @@
+diff --git a/tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-xml-module/src/main/java/org/apache/tika/parser/xliff/XLIFF12Parser.java b/tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-xml-module/src/main/java/org/apache/tika/parser/xliff/XLIFF12Parser.java
+index 33891af..1b49744 100644
+--- a/tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-xml-module/src/main/java/org/apache/tika/parser/xliff/XLIFF12Parser.java
++++ b/tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-xml-module/src/main/java/org/apache/tika/parser/xliff/XLIFF12Parser.java
+@@ -75,17 +75,24 @@ public class XLIFF12Parser implements Parser {
+     }
+ 
+     private static void _parse(InputStream is, DefaultHandler contentHandler,
+-                                 ParseContext context) throws SAXException, IOException {
++                                ParseContext context) throws SAXException, IOException, TikaException {
+         SAXParserFactory factory = SAXParserFactory.newInstance();
++        try {
++            factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
++            factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
++            factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
++            factory.setXIncludeAware(false);
++        } catch (ParserConfigurationException e) {
++            throw new TikaException("Error configuring SAX parser", e);
++        }
+         factory.setNamespaceAware(true);
+         SAXParser parser = null;
+         try {
+             parser = factory.newSAXParser();
+         } catch (ParserConfigurationException e) {
+-            throw new SAXException(e);
++            throw new TikaException("Error creating SAX parser", e);
+         }
+         parser.parse(is, contentHandler);
+-
+     }
+ 
+ }

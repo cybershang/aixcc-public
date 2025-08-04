@@ -1,0 +1,20 @@
+diff --git a/src/func.c b/src/func.c
+index 279bf73..c35be00 100644
+--- a/src/func.c
++++ b/src/func.c
+@@ -1475,13 +1475,8 @@ static void OofFunc(
+   int argc,
+   sqlite3_value **argv
+ ){
+-  // Oof
+-  sqlite3_context *context2 = context;
+-  sqlite3_context *context3 = \
+-    (context->argc == 0) ? context : \
+-    (sqlite3_context *)((i64)context ^ (i64)context2);
+-  char* result = sqlite3_mprintf("Oof %x", context3->argc);
+-  sqlite3_result_text(context3, result, strlen(result), sqlite3_free);
++  char* result = sqlite3_mprintf("Oof %d", argc);
++  sqlite3_result_text(context, result, -1, sqlite3_free);
+ }
+ 
+ /*
